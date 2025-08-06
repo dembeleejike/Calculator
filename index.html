@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>HTML</title>
+  
+  <!-- HTML -->
+  
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="style.css">
+  <script src="main.js"></script>
+</head>
+
+<body>
+    
+    <div id="calculator">
+        <input type="text" id="display"placeholder="0"disabled>
+        <div>
+            <button class="button1" "onclick"="clearDisplay()">AC</button>
+            <button class="button1" onclick="backspace()">DEL</button>
+            <button class="button1" onclick="appendOperator('/')">/</button>
+            <button class="button1" onclick="appendOperator('+')">+</button>
+        </div>
+        <div>
+            <button class="button" onclick="appendNumber(7)">7</button>
+            <button class="button" onclick="appendNumber(8)">8</button>
+            <button class="button" onclick="appendNumber(9)">9</button>
+           <button class="button1" onclick="appendOperator('*')">*</button>
+
+        </div>
+        <div class="characters">
+            <button class="button" onclick="appendNumber(4)">4</button>
+            <button class="button" onclick="appendNumber(5)">5</button>
+            <button class="button" onclick="appendNumber(6)">6</button>
+            <button class="button1" onclick="appendOperator('-')">-</button>
+        </div>
+        <div>
+            <button class="button" onclick="appendNumber(1)">1</button>
+            <button class="button" onclick="appendNumber(2)">2</button>
+            <button class="button" onclick="appendNumber(3)">3</button>
+
+        </div>
+        <div>
+            <button class="button" oneclick="appendOperator(%)">%
+                </button>
+            <button class="button" onclick="appendNumber(0)">0</button>
+            <button class="button" onclick="appendOperator('.')">.</button>
+    
+      <button class="button2"onclick="calculate()"">=</button>
+      
+        </div>
+
+    
+
+    <script>
+        let display = document.getElementById('display');
+        
+        function appendNumber(num) {
+            display.value += num;
+        }
+        
+        function appendOperator(operator) {
+            display.value += operator;
+        }
+        
+        function calculate() {
+            try {
+                display.value = eval(display.value);
+            } catch (error) {
+                display.value = 'Error';
+            }
+        }
+        
+        function clearDisplay() {
+            display.value = '';
+        }
+        
+        function backspace() {
+            display.value = display.value.slice(0, -1);
+        }
+    </script>
+    </div>
+
+</body>
+</html>
